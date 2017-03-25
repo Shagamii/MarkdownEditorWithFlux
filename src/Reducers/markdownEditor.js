@@ -13,7 +13,7 @@ function whenChageCode(state, code) {
 export default function markdownEdtor(state = initialState(), event) {
   switch (event.type) {
   case MARKDOWN_EDITOR.CHANGE_CODE:
-    return whenChageCode(state, event.code);
+    return whenChageCode(state, event.newValue);
   default:
     return state;
   }

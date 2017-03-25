@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -13,6 +13,13 @@ import * as markdownEdtorAction from './Actions/markdownEditorAction';
 import './App.css';
 
 class MarkdownEditor extends Component {
+  static propTypes = {
+    markdownEdtor: PropTypes.object.isRequired,
+  }
+
+  onChangeCode = newValue =>
+   this.props.onChangeCode(newValue);
+
   render() {
     const { code } = this.props.markdownEdtor;
     return (
@@ -23,7 +30,7 @@ class MarkdownEditor extends Component {
               mode='markdown'
               theme='github'
               value={ code }
-              onChange={ this.onChange }
+              onChange={ this.onChangeCode }
                />
           </div>
         </div>
