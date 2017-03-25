@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
-import brace from 'brace';
 import AceEditor from 'react-ace';
+import ReactMarkdown from 'react-markdown'
 
 import 'brace/mode/markdown';
 import 'brace/theme/github';
@@ -25,11 +25,18 @@ class MarkdownEditor extends Component {
     return (
       <div className="App">
         <div className="container">
-          <div className="Form">
+          <h1>MarkdownEditor with Redux</h1>
+          <div className="form">
             <AceEditor
               mode='markdown'
               theme='github'
               value={ code }
+              onChange={ this.onChangeCode }
+               />
+          </div>
+          <div className="markdown">
+            <ReactMarkdown
+              source={ code }
               onChange={ this.onChangeCode }
                />
           </div>
